@@ -1,0 +1,15 @@
+<h1>Ca cest Index</h1>
+
+<ul>
+  <% @tasks.each do | task | %>
+    <li>
+      <% if task.completed %>
+        [x] <%= link_to(task.name, task_path(task.id)) %>
+        <%else%>
+        [ ] <%= link_to(task.name, task_path(task.id)) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to("Create task", new_task_path) %>
